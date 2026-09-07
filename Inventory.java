@@ -4,6 +4,10 @@ import java.util.List;
 import model.Category;
 import model.Item;
 
+/**
+ * Stores inventory items and provides operations for lookup, filtering, and sorting.
+ * This class manages data only and does not print user-facing messages.
+ */
 public class Inventory {
 
     public static final int LOW_STOCK_LIMIT = 5;
@@ -26,6 +30,7 @@ public class Inventory {
         return items.size();
     }
 
+    /** Finds an item by ID, ignoring letter case, or returns {@code null}. */
     public Item findById(String id) {
         for (Item item : items) {
             if (item.getId().equalsIgnoreCase(id)) {
@@ -39,6 +44,7 @@ public class Inventory {
         return findById(id) != null;
     }
 
+    /** Removes and returns the item with the supplied ID, or returns {@code null}. */
     public Item removeById(String id) {
         Item item = findById(id);
         if (item != null) {
@@ -69,6 +75,7 @@ public class Inventory {
         return result;
     }
 
+    /** Returns a new list containing items at or below the low-stock threshold. */
     public List<Item> getLowStock() {
         List<Item> result = new ArrayList<>();
         for (Item item : items) {
@@ -79,6 +86,7 @@ public class Inventory {
         return result;
     }
 
+    /** Returns a sorted copy without changing the order of the stored inventory. */
     public List<Item> getSorted(boolean byQuantity, boolean ascending) {
         List<Item> sorted = new ArrayList<>(items);
 
