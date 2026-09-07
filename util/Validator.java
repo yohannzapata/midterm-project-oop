@@ -11,7 +11,7 @@ public class Validator {
     public static final int ID_MAX_LENGTH = 20;
     public static final int NAME_MIN_LENGTH = 2;
     public static final int NAME_MAX_LENGTH = 40;
-    public static final int MAX_QUANTITY = 1_000_000;
+        public static final int MAX_QUANTITY = 10_000;
     public static final double MAX_PRICE = 1_000_000.00;
 
     private Validator() {
